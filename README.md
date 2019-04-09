@@ -1,6 +1,4 @@
-# player-time-logger
-
-# v0.1 latest
+# player-time-logger v0.1
 
 bind $$<onleavepop.txt> to onChat
 
