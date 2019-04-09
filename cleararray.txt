@@ -1,0 +1,15 @@
+$${
+
+ARRAYSIZE(@&players,#size);
+ARRAYSIZE(@&player_jointimes,#size1)
+LOG(%#size%);
+
+FOR(#i,0,%#size%);
+    POP(@&players,&junk);
+NEXT;
+
+FOR(#j,0,%#size1%);
+    POP(@&player_jointimes,&junk);
+NEXT;
+
+}$$
