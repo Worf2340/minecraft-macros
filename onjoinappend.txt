@@ -1,0 +1,6 @@
+$${
+PUSH(@&players,%JOINEDPLAYER%);
+MATCH(%DATETIME%,[^\s]*$,&time);
+PUSH(@&player_jointimes,%&time%);
+}$$
+
