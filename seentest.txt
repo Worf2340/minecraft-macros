@@ -1,5 +1,5 @@
 $${
-
+//test the /seen regex
 IFMATCHES(%CHATCLEAN%,Player (.*) is online since (.*) minute(.*) (.*) second(.*).);
     LOG(yes);
 ENDIF;
