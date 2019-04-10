@@ -1,0 +1,8 @@
+$${
+
+IFMATCHES(%CHATCLEAN%,Player (.*) is online since (.*).);
+    @&seenchat=%CHATCLEAN%;
+    EXEC("appendOnSeen.txt");
+ENDIF;
+
+}$$
