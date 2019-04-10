@@ -1,8 +1,9 @@
-# player-time-logger v1.0
+# player-time-logger v1.1
 
 #### To make it easier to add the files, go to releases and download the latest zip. Then, copy the required txt files to \liteconfig\common\macros. They should appear in game. 
 
 ### Macro bindings
+##### (changes in bold)
 
 bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
@@ -15,4 +16,6 @@ bind $$<appendOnJoin.txt> to onPlayerJoined
 bind $$<cleararray.txt> and $$<printarray.txt> to buttons or keys of your choice. They clear the list of tracked players and log the list to your console. 
 
 showelapsedtime.txt and appendOnSeen.txt don't need to be bound to anything. 
+
+##### bind $$<removeplayer.txt> to a key/button of your choice. It will remove a specific player from the array.
 
