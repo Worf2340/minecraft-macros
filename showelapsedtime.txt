@@ -29,7 +29,7 @@ MATCH(%&time1%),[^:]*,#hour1);
 MATCH(%&time1%,(?<=:).*?(?=:),#minute1);
 MATCH(%&time1%,([^:]*)$,#second1); 
 
-LOG(currenttime: %&time1%);
+//LOG(currenttime: %&time1%);
 
 #mindiff=%#minute1%-%#minute%;
 #elapsed_hours=%#hour1%-%#hour%;
