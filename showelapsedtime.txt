@@ -74,13 +74,13 @@ ENDIF;
 
 //if mins and hours are 0 log only seconds
 IF((%#elapsed_hours%=0)&&(%#elapsed_minutes%=0));
-    LOG(%&leftplayer% was on for %#elapsed_seconds%s);
+    LOG(&e%&leftplayer% was on for %#elapsed_seconds%s);
 //if hours are 0 log only secs and minutes
 ELSEIF(%#elapsed_hours%=0);
-    LOG(%&leftplayer% was on for %#elapsed_minutes%m %#elapsed_seconds%s);
+    LOG(&e%&leftplayer% was on for %#elapsed_minutes%m %#elapsed_seconds%s);
 //else log everything
 ELSE;
-    LOG(%&leftplayer% was on for %#elapsed_hours%h %#elapsed_minutes%m %#elapsed_seconds%s)
+    LOG(&e%&leftplayer% was on for %#elapsed_hours%h %#elapsed_minutes%m %#elapsed_seconds%s)
 ENDIF;
 
 @&players[%#index%]="";
