@@ -16,20 +16,20 @@ ENDIF;
 //&seentime="0:0:0";
 //LOG(seentime: %&seentime%);
 
-//MATCH(%&starttime%,[^\s]*$,&time);
-&time="18:50:30"
+MATCH(%&starttime%,[^\s]*$,&time);
+//&time="18:50:30"
 //LOG(starttime: %&time%)
 MATCH(%&time%),[^:]*,#hour);
 MATCH(%&time%,(?<=:).*?(?=:),#minute);
 MATCH(%&time%,([^:]*)$,#second);
 
-//MATCH(%DATETIME%,[^\s]*$,&time1);
-&time1="19:49:20";
+MATCH(%DATETIME%,[^\s]*$,&time1);
+//&time1="19:49:20";
 MATCH(%&time1%),[^:]*,#hour1);
 MATCH(%&time1%,(?<=:).*?(?=:),#minute1);
 MATCH(%&time1%,([^:]*)$,#second1); 
 
-LOG(currenttime: %&time1%);
+//LOG(currenttime: %&time1%);
 
 #mindiff=%#minute1%-%#minute%;
 #elapsed_hours=%#hour1%-%#hour%;
