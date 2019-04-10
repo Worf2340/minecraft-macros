@@ -13,21 +13,24 @@ INDEXOF(@&players,#n,%@&realname%);
 
 IFMATCHES(%@&seenchat%,\bhour(.?)\b);
     MATCH(%@&seenchat%,(?<=since\s).*(?=\shour),#seen_hour);
-    MATCH(%@&seenchat%,(?<=hour\s).*(?=\sminutes),#seen_minute);
-    MATCH(%@&seenchat%,(?<=minutes\s).*(?=\sseconds),#seen_second);
+    MATCH(%@&seenchat%,(?<=hours\s|hour\s).*(?=\sminute),#seen_minute);
+    MATCH(%@&seenchat%,(?<=minutes\s|minute\s).*(?=\ssecond),#seen_second);
 ELSE;
+    LOG();
     IFMATCHES(%@&seenchat%,\bminute(.?)\b);
-        MATCH(%@&seenchat%,(?<=since\s).*(?=\sminutes),#seen_minute);
-        MATCH(%@&seenchat%,(?<=minutes\s).*(?=\sseconds),#seen_second);
+        MATCH(%@&seenchat%,(?<=since\s).*(?=\sminute),#seen_minute);
+        MATCH(%@&seenchat%,(?<=minutes\s|minute\s).*(?=\ssecond),#seen_second);
     ELSE;
         IFMATCHES(%@&seenchat%,\bsecond(.?)\b);
-            MATCH(%@&seenchat%,(?<=since\s).*(?=\sseconds),#seen_second)   
+            MATCH(%@&seenchat%,(?<=since\s).*(?=\ssecond),#seen_second)   
         ENDIF;
     ENDIF;
 ENDIF;
 
 &seen_time=%#seen_hour%:%#seen_minute%:%#seen_second%;
-//LOG(%&seen_time%);
+LOG(%#seen_hour%);
+LOG(%#seen_minute%);
+LOG(%#seen_second%);
 
 IF(%#n%=-1); 
     PUSH(@&players,%@&realname%);
