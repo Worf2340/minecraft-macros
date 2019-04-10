@@ -2,6 +2,8 @@
 
 ### To make it easier to add the files, go to releases and download the zip. Then, copy the required txt files to \liteconfig\common\macros. They should appear in game. 
 
+#### Macro bindings
+
 bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
 (You should already have realname.txt bound to onChat. If not, binnd it)
