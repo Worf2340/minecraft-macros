@@ -1,10 +1,13 @@
-# player-time-logger v0.1.1
+# player-time-logger v1.0
 
-bind $$<onleavepop.txt> to onChat
+bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
-bind $$<onjoinappend.txt> to onPlayerJoined
+(You should already have realname.txt bound to onChat. If not, binnd it)
 
 bind $$<cleararray.txt> to onJoinGame
 
+bind $$<appendOnJoin> to onPlayerJoined
+  
+bind $$<cleararray.txt> and $$<printarray.txt> to buttons or keys of your choice. They clear the list of tracked players and log the list to your console. 
 
-/seen feature to be added 
+showelapsedtime.txt and appendOnSeen.txt don't need to be bound to anything. 
