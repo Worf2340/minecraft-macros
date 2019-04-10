@@ -6,7 +6,7 @@
 
 bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
-(You should already have realname.txt bound to onChat. If not, binnd it)
+(You should already have realname.txt bound to onChat. If not, bind it)
 
 bind $$<cleararray.txt> to onJoinGame
 
