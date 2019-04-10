@@ -1,5 +1,13 @@
 # Changelog 
 
+
+## v1.1.3
+#### changes
+- minor bug fixes
+    - fixed /seen not registering plural hours 
+#### files updated
+- appendOnSeen.txt
+
 ## v1.1.2
 #### changes
 - minor bug fixes
