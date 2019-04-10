@@ -3,7 +3,7 @@ $${
 ARRAYSIZE(@&players,#size);
 ARRAYSIZE(@&player_jointimes,#size1)
 ARRAYSIZE(@&player_seentime,#size2);
-LOG(%#size%);
+
 
 FOR(#i,0,%#size%);
     POP(@&players,&junk);
@@ -19,3 +19,4 @@ NEXT;
 
 }$$
 
+LOG(%#size% items have been cleared from the array);

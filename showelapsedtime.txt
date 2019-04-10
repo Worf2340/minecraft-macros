@@ -16,15 +16,15 @@ ENDIF;
 //&seentime="0:0:0";
 //LOG(seentime: %&seentime%);
 
-MATCH(%&starttime%,[^\s]*$,&time);
-//&time="19:04:59"
+//MATCH(%&starttime%,[^\s]*$,&time);
+&time="18:50:30"
 //LOG(starttime: %&time%)
 MATCH(%&time%),[^:]*,#hour);
 MATCH(%&time%,(?<=:).*?(?=:),#minute);
 MATCH(%&time%,([^:]*)$,#second);
 
-MATCH(%DATETIME%,[^\s]*$,&time1);
-//&time1="19:05:09";
+//MATCH(%DATETIME%,[^\s]*$,&time1);
+&time1="19:49:20";
 MATCH(%&time1%),[^:]*,#hour1);
 MATCH(%&time1%,(?<=:).*?(?=:),#minute1);
 MATCH(%&time1%,([^:]*)$,#second1); 
@@ -48,6 +48,9 @@ ENDIF;
 
 #elapsed_minutes=%#minute1%-%#minute%;
 #elapsed_minutes=%#elapsed_minutes%+%#seen_minute%; 
+IF(%#elapsed_minutes%<0);
+    #elapsed_minutes=60+%#elapsed_minutes%;
+ENDIF;
 //LOG(mins=%#elapsed_minutes%);
 
 #elapsed_hours=%#hour1%-%#hour%;
@@ -87,5 +90,4 @@ ENDIF;
 @&player_jointimes[%#index%]="";
 @#player_seen[%#index%]=-1;
 @&player_seentime[%#index%]="";
-
 
