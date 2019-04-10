@@ -1,9 +1,12 @@
 $${
 
-MATCH(%@&seenchat%,(?<=Player)(.*)(?=is),&name);
-//LOG(%&name%);
+MATCH(%@&seenchat%,(?<=Player)(.*)(?=is),&tag);
+LOG(%&tag%);
+MATCH(%&tag%,[^\]]+$,&name);
+LOG(%&name%);
 ECHO(/realname %&name%);
-WAIT(500ms);
+
+WAIT(750ms);
 //MATCH(%CHATCLEAN%,(\w+)$,&ign);
 //LOG(%@&realname%);
 INDEXOF(@&players,#n,%@&realname%);
