@@ -1,9 +1,9 @@
 $${
 
 MATCH(%@&seenchat%,(?<=Player)(.*)(?=is),&tag);
-LOG(%&tag%);
+//LOG(%&tag%);
 MATCH(%&tag%,[^\]]+$,&name);
-LOG(%&name%);
+//LOG(%&name%);
 ECHO(/realname %&name%);
 
 WAIT(750ms);
