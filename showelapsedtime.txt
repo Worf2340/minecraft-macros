@@ -1,0 +1,91 @@
+$${
+
+MATCH(%@&leavechat%,^\s*([a-zA-Z0-9]+),&leftplayer);
+//LOG(%&leftplayer%);
+//&leftplayer="Worf2340";
+INDEXOF(@&players,#index,%&leftplayer%);
+
+IF(%#index%=-1);
+    LOG(player not found);
+    STOP();
+ENDIF;
+
+&starttime=%@&player_jointimes[%#index%]%;
+//LOG(starttime: %&starttime%);
+&seentime=%@&player_seentime[%#index%]%;
+//&seentime="0:0:0";
+//LOG(seentime: %&seentime%);
+
+MATCH(%&starttime%,[^\s]*$,&time);
+//&time="19:04:59"
+//LOG(starttime: %&time%)
+MATCH(%&time%),[^:]*,#hour);
+MATCH(%&time%,(?<=:).*?(?=:),#minute);
+MATCH(%&time%,([^:]*)$,#second);
+
+MATCH(%DATETIME%,[^\s]*$,&time1);
+//&time1="19:05:09";
+MATCH(%&time1%),[^:]*,#hour1);
+MATCH(%&time1%,(?<=:).*?(?=:),#minute1);
+MATCH(%&time1%,([^:]*)$,#second1); 
+
+LOG(currenttime: %&time1%);
+
+#mindiff=%#minute1%-%#minute%;
+#elapsed_hours=%#hour1%-%#hour%;
+
+
+MATCH(%&seentime%,[^:]*,#seen_hour);
+MATCH(%&seentime%,(?<=:).*?(?=:),#seen_minute);
+MATCH(%&seentime%,([^:]*)$,#seen_second);
+
+#elapsed_seconds=%#second1%-%#second%;
+#elapsed_seconds=%#elapsed_seconds%+%#seen_second%;
+IF(%#elapsed_seconds%<0);
+    #elapsed_seconds=60+%#elapsed_seconds%;
+ENDIF;
+//LOG(secs=%#elapsed_seconds%);
+
+#elapsed_minutes=%#minute1%-%#minute%;
+#elapsed_minutes=%#elapsed_minutes%+%#seen_minute%; 
+//LOG(mins=%#elapsed_minutes%);
+
+#elapsed_hours=%#hour1%-%#hour%;
+#elapsed_hours=%#elapsed_hours%+%#seen_hour%;
+//LOG(hrs=%#elapsed_hours%);
+
+//if seconds greater than 60 rollover
+IF(%#elapsed_seconds%>=60);
+    #elapsed_minutes_addition=%#elapsed_seconds%/60;
+    #elapsed_seconds_subtraction=%#elapsed_minutes_addition%*60;
+    #elapsed_seconds=%#elapsed_seconds%-%#elapsed_seconds_subtraction%;
+    #elapsed_minutes=%#elapsed_minutes%+%#elapsed_minutes_addition%;
+ENDIF;  
+
+//if mins greater than 60 rollover
+IF(%#elapsed_minutes%>=60);
+    #elapsed_hours_addition=%#elapsed_minutes%/60;
+    #elapsed_minutes_subtraction=%#elapsed_hours_addition%*60;
+    #elapsed_minutes=%#elapsed_minutes%-%#elapsed_minutes_subtraction%;
+    #elapsed_hours=%#elapsed_hours%+%#elapsed_hours_addition%;
+ENDIF;
+
+//log elapsed time
+
+//if mins and hours are 0 log only seconds
+IF((%#elapsed_hours%=0)&&(%#elapsed_minutes%=0));
+    LOG(%&leftplayer% was on for %#elapsed_seconds%s);
+//if hours are 0 log only secs and minutes
+ELSEIF(%#elapsed_hours%=0);
+    LOG(%&leftplayer% was on for %#elapsed_minutes%m %#elapsed_seconds%s);
+//else log everything
+ELSE;
+    LOG(%&leftplayer% was on for %#elapsed_hours%h %#elapsed_minutes%m %#elapsed_seconds%s)
+ENDIF;
+
+@&players[%#index%]="";
+@&player_jointimes[%#index%]="";
+@#player_seen[%#index%]=-1;
+@&player_seentime[%#index%]="";
+
+
