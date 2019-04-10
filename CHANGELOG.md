@@ -1,6 +1,7 @@
 # Changelog 
 
 ## v1.1
+#### changes
 - made leave messages yellow
 - added removeplayer.txt 
 - fixed negative time in minutes bug 
