@@ -1,8 +1,8 @@
 # player-time-logger v1.0
 
-### To make it easier to add the files, go to releases and download the zip. Then, copy the required txt files to \liteconfig\common\macros. They should appear in game. 
+#### To make it easier to add the files, go to releases and download the zip. Then, copy the required txt files to \liteconfig\common\macros. They should appear in game. 
 
-#### Macro bindings
+### Macro bindings
 
 bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
