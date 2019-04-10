@@ -17,14 +17,14 @@ ENDIF;
 //LOG(seentime: %&seentime%);
 
 MATCH(%&starttime%,[^\s]*$,&time);
-//&time="18:50:30"
+//&time="08:30:30"
 //LOG(starttime: %&time%)
 MATCH(%&time%),[^:]*,#hour);
 MATCH(%&time%,(?<=:).*?(?=:),#minute);
 MATCH(%&time%,([^:]*)$,#second);
 
 MATCH(%DATETIME%,[^\s]*$,&time1);
-//&time1="19:49:20";
+//&time1="09:20:20";
 MATCH(%&time1%),[^:]*,#hour1);
 MATCH(%&time1%,(?<=:).*?(?=:),#minute1);
 MATCH(%&time1%,([^:]*)$,#second1); 
@@ -41,20 +41,25 @@ MATCH(%&seentime%,([^:]*)$,#seen_second);
 
 #elapsed_seconds=%#second1%-%#second%;
 #elapsed_seconds=%#elapsed_seconds%+%#seen_second%;
-IF(%#elapsed_seconds%<0);
-    #elapsed_seconds=60+%#elapsed_seconds%;
-ENDIF;
-//LOG(secs=%#elapsed_seconds%);
 
 #elapsed_minutes=%#minute1%-%#minute%;
 #elapsed_minutes=%#elapsed_minutes%+%#seen_minute%; 
-IF(%#elapsed_minutes%<0);
-    #elapsed_minutes=60+%#elapsed_minutes%;
-ENDIF;
-//LOG(mins=%#elapsed_minutes%);
 
 #elapsed_hours=%#hour1%-%#hour%;
 #elapsed_hours=%#elapsed_hours%+%#seen_hour%;
+IF(%#elapsed_seconds%<0);
+    #elapsed_seconds=60+%#elapsed_seconds%;
+    #elapsed_minutes=%#elapsed_minutes%-1;
+ENDIF;
+//LOG(secs=%#elapsed_seconds%);
+
+IF(%#elapsed_minutes%<0);
+    #elapsed_minutes=60+%#elapsed_minutes%;
+    #elapsed_hours=%#elapsed_hours%-1;
+ENDIF;
+//LOG(mins=%#elapsed_minutes%);
+
+
 //LOG(hrs=%#elapsed_hours%);
 
 //if seconds greater than 60 rollover
