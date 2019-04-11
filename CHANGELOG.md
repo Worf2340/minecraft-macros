@@ -1,5 +1,11 @@
 # Changelog 
 
+## v1.1.4
+#### changes
+- minor bug fixes
+    - fixed more negative time bugs 
+#### files updated
+- showelapsedtime.txt.txt
 
 ## v1.1.3
 #### changes
