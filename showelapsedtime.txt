@@ -2,7 +2,7 @@ $${
 
 MATCH(%@&leavechat%,^\s*([a-zA-Z0-9]+),&leftplayer);
 //LOG(%&leftplayer%);
-//&leftplayer="Worf2340";
+&leftplayer="Worf2340";
 INDEXOF(@&players,#index,%&leftplayer%);
 
 IF(%#index%=-1);
@@ -13,23 +13,23 @@ ENDIF;
 &starttime=%@&player_jointimes[%#index%]%;
 //LOG(starttime: %&starttime%);
 &seentime=%@&player_seentime[%#index%]%;
-//&seentime="0:0:0";
+&seentime="0:0:0";
 //LOG(seentime: %&seentime%);
 
 MATCH(%&starttime%,[^\s]*$,&time);
-//&time="08:30:30"
-//LOG(starttime: %&time%)
+&time="23:20:20"
+LOG(starttime: %&time%)
 MATCH(%&time%),[^:]*,#hour);
 MATCH(%&time%,(?<=:).*?(?=:),#minute);
 MATCH(%&time%,([^:]*)$,#second);
 
 MATCH(%DATETIME%,[^\s]*$,&time1);
-//&time1="09:20:20";
+&time1="03:10:10";
 MATCH(%&time1%),[^:]*,#hour1);
 MATCH(%&time1%,(?<=:).*?(?=:),#minute1);
 MATCH(%&time1%,([^:]*)$,#second1); 
 
-//LOG(currenttime: %&time1%);
+LOG(currenttime: %&time1%);
 
 #mindiff=%#minute1%-%#minute%;
 #elapsed_hours=%#hour1%-%#hour%;
@@ -56,6 +56,10 @@ ENDIF;
 IF(%#elapsed_minutes%<0);
     #elapsed_minutes=60+%#elapsed_minutes%;
     #elapsed_hours=%#elapsed_hours%-1;
+ENDIF;
+
+IF(%#elapsed_hours%<0);
+    #elapsed_hours=24+%#elapsed_hours%;
 ENDIF;
 //LOG(mins=%#elapsed_minutes%);
 
