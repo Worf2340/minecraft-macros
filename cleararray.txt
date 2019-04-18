@@ -16,7 +16,7 @@ NEXT;
 FOR(#l,0,%#size2%);
     POP(@&player_seentime,&junk);
 NEXT;
+LOG(%#size% items have been cleared from the array);
 
 }$$
 
-LOG(%#size% items have been cleared from the array);
