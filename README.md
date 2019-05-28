@@ -1,4 +1,4 @@
-# player-time-logger v1.1.5 (beta)
+# player-time-logger v1.1.5 
 
 #### To make it easier to add the files, go to releases and download the latest zip. Then, copy the required txt files to \liteconfig\common\macros. They should appear in game. 
 
