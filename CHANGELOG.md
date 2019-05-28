@@ -1,11 +1,18 @@
 # Changelog 
 
+## v1.1.5
+#### changes
+- minor bug fixes
+    - fixed not showing elapsed time for users with special characters in name 
+#### files updated
+- showelapsedtime.txt
+
 ## v1.1.4
 #### changes
 - minor bug fixes
     - fixed more negative time bugs 
 #### files updated
-- showelapsedtime.txt.txt
+- showelapsedtime.txt
 
 ## v1.1.3
 #### changes
