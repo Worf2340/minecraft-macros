@@ -7,7 +7,7 @@
 
 ##### bind $$<removeplayer.txt> to a key/button of your choice. It will remove a specific player from the array.
 
-bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
+*bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
 (You should already have realname.txt bound to onChat. If not, bind it)
 
