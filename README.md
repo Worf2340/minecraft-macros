@@ -5,7 +5,7 @@
 ### Macro bindings
 ##### (changes in bold) (read CHANGELOG.md for complete changes)
 
-##### bind $$<removeplayer.txt> to a key/button of your choice. It will remove a specific player from the array.
+* ##### bind $$<removeplayer.txt> to a key/button of your choice. It will remove a specific player from the array.
 
 * bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
