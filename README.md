@@ -15,7 +15,7 @@ bind $$<cleararray.txt> to onJoinGame
 
 bind $$<appendOnJoin.txt> to onPlayerJoined
   
-bind $$<cleararray.txt> and $$<printarray.txt> to **seperate** buttons or keys of your choice. They clear the list of tracked players and log the list to your console. 
+bind $$<cleararray.txt> and $$<printarray.txt> to **separate** buttons or keys of your choice. They clear the list of tracked players and log the list to your console. 
 
 showelapsedtime.txt and appendOnSeen.txt don't need to be bound to anything. 
 
