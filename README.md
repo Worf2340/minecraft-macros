@@ -9,14 +9,14 @@
 
 * bind $$<onLeave.txt> and $$<onSeen.txt> to onChat
 
-(You should already have realname.txt bound to onChat. If not, bind it)
+* (You should already have realname.txt bound to onChat. If not, bind it)
 
-bind $$<cleararray.txt> to onJoinGame
+* bind $$<cleararray.txt> to onJoinGame
 
-bind $$<appendOnJoin.txt> to onPlayerJoined
+* bind $$<appendOnJoin.txt> to onPlayerJoined
   
-bind $$<cleararray.txt> and $$<printarray.txt> to **separate** buttons or keys of your choice. They clear the list of tracked players and log the list to your console. 
+* bind $$<cleararray.txt> and $$<printarray.txt> to **separate** buttons or keys of your choice. They clear the list of tracked players and log the list to your console. 
 
-showelapsedtime.txt and appendOnSeen.txt don't need to be bound to anything. 
+* showelapsedtime.txt and appendOnSeen.txt don't need to be bound to anything. 
 
 
