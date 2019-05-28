@@ -1,6 +1,6 @@
 $${
 
-MATCH(%@&leavechat%,^\s*([a-zA-Z0-9]+),&leftplayer);
+MATCH(%@&leavechat%,^([^\s]+),&leftplayer);
 //LOG(%&leftplayer%);
 //&leftplayer="Worf2340";
 INDEXOF(@&players,#index,%&leftplayer%);
