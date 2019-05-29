@@ -1,8 +1,0 @@
-
-$${
-IFMATCHES(%CHATCLEAN%,(.*)left the game(.*));
-    @&leavechat=%CHATCLEAN%;
-    EXEC("showelapsedtime.txt");
-ENDIF;
-
-}$$
