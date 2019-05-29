@@ -1,0 +1,10 @@
+$${
+
+IFMATCHES(%CHAT%,/afk);
+    IF(@afk=0);
+        LOG(SET AFK);
+        SET(@afk);
+    ENDIF;
+ENDIF;
+
+}$$
