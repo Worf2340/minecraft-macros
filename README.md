@@ -8,7 +8,7 @@
   * Automatically takes corn from a hobbit oven when opened.
 * Auto Fly
   * Give /fly to the last person to talk in chat 
-* Auto pweather
+* Auto Pweather
   * Automatically /pweather clear when the weather changes.
 * Auto WB
   * Automatically says wb to a player on joining, does not do it if you are /afk.
