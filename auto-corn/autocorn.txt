@@ -1,0 +1,35 @@
+$${
+IF(%@autocorn%=0);
+    STOP();
+ENDIF;
+
+IF(%GUI%!="LOTRGUIHOBBITOVEN");
+    STOP();
+ENDIF;
+
+#starting_level=%LEVEL%;
+IF(%#starting_level%>=30);
+    PRESS(e);
+    STOP();
+ELSEIF(%#starting_level%<26);
+    #wait=0;
+ELSE;
+    #wait=1;
+ENDIF;
+
+for(#i,9,17);
+    IF(%LEVEL%<30);
+        GETSLOTITEM(%#i%,&id);
+        IF(%&id%="air");
+            PASS;
+        ELSE;
+            slotclick(%#i%,false,true);
+            IF(%#wait%=1);
+                WAIT(125ms);
+            ENDIF;
+        ENDIF;
+    ENDIF;
+    INC(#i);
+    NEXT;
+PRESS(e);
+}$$
