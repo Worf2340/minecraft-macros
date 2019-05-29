@@ -1,0 +1,8 @@
+$${
+ 
+IFMATCHES(%CHATCLEAN%,(.*)Welcome \[Traveler\](.*?));
+    MATCH(%CHATCLEAN%,(?<=]).*?(?=\s),&name);
+    LOG(Welcome %&name%!);
+ENDIF;
+ 
+}$$
