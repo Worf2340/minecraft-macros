@@ -8,7 +8,7 @@
 * bind this to onPlayerJoined: $${IIF(@afk=0, wb)}$$
 * bind <isnotafk.txt> to onChat
 * bind <isafk.txt> to onSendChatMessage
-* replace *(.*) \[Royal Guard of the King\]~Fili is no longer AFK* with your name and tag in isnotafk.txt
+* replace "(.*) \[Royal Guard of the King\]~Fili is no longer AFK" with your name and tag in isnotafk.txt
 
 
 
