@@ -1,0 +1,45 @@
+$${
+
+MATCH(%@&seenchat%,(?<=Player)(.*)(?=is),&tag);
+//LOG(%&tag%);
+MATCH(%&tag%,[^\]]+$,&name);
+//LOG(%&name%);
+ECHO(/realname %&name%);
+
+WAIT(750ms);
+//MATCH(%CHATCLEAN%,(\w+)$,&ign);
+//LOG(%@&realname%);
+INDEXOF(@&players,#n,%@&realname%);
+
+IFMATCHES(%@&seenchat%,\bhour(.?)\b);
+    MATCH(%@&seenchat%,(?<=since\s).*(?=\shour),#seen_hour);
+    MATCH(%@&seenchat%,(?<=hours\s|hour\s).*(?=\sminute),#seen_minute);
+    MATCH(%@&seenchat%,(?<=minutes\s|minute\s).*(?=\ssecond),#seen_second);
+ELSE;
+    LOG();
+    IFMATCHES(%@&seenchat%,\bminute(.?)\b);
+        MATCH(%@&seenchat%,(?<=since\s).*(?=\sminute),#seen_minute);
+        MATCH(%@&seenchat%,(?<=minutes\s|minute\s).*(?=\ssecond),#seen_second);
+    ELSE;
+        IFMATCHES(%@&seenchat%,\bsecond(.?)\b);
+            MATCH(%@&seenchat%,(?<=since\s).*(?=\ssecond),#seen_second)   
+        ENDIF;
+    ENDIF;
+ENDIF;
+
+&seen_time=%#seen_hour%:%#seen_minute%:%#seen_second%;
+LOG(%#seen_hour%);
+LOG(%#seen_minute%);
+LOG(%#seen_second%);
+
+IF(%#n%=-1); 
+    PUSH(@&players,%@&realname%);
+    MATCH(%DATETIME%,[^\s]*$,&time);
+    PUSH(@&player_jointimes,%&time%);
+    PUSH(@#player_seen,1);
+    PUSH(@&player_seentime,%&seen_time%);
+    LOG(%@&realname% added to tracked players list at %&time%);
+    //LOG(seen=%@#player_seen[0]%);
+ELSE;
+   LOG(This player is already being tracked!);
+ENDIF; 

@@ -1,5 +1,0 @@
-$${
-
-MATCH(%CHATCLEAN%,(\w+)$,@&realname);
-
-}$$
