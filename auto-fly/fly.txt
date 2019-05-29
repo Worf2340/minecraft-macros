@@ -1,0 +1,5 @@
+$${
+ECHO(/realname %@&lastnick%);
+WAIT(500ms);
+ECHO(/seen %@&realname%);
+}$$

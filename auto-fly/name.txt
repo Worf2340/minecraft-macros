@@ -1,0 +1,7 @@
+$${
+
+
+MATCH(%CHATCLEAN%,(?<=]).*?(?=>),@&lastnick);
+
+
+}$$

@@ -1,0 +1,15 @@
+$${
+ 
+ IFMATCHES(%CHATCLEAN%,^Fast travel in 1\.\.\.$);
+    WAIT(5000ms);
+    MATCH(%DATETIME%,[^\s]*$,&start);
+    EXEC("twominstimer.txt","timer: %&start%");
+ ELSE;
+    IFMATCHES(%CHATCLEAN%, commencing);
+        WAIT(2000ms);
+        MATCH(%DATETIME%,[^\s]*$,&start);
+        EXEC("twominstimer.txt","timer: %&start%");
+    ENDIF;
+ ENDIF;
+
+}$$

@@ -3,7 +3,6 @@
 #### To make it easier to add the files, go to releases and download the latest zip. Then, copy the required txt files to \liteconfig\common\macros. They should appear in game. 
 
 ### Macro bindings
-##### (changes in bold) (read CHANGELOG.md for complete changes)
 
 * bind this to onJoinGame: $${UNSET(@afk);LOG(UNSET AFK)}$$
 * bind this to onPlayerJoined: $${IIF(@afk=0, wb)}$$

@@ -1,0 +1,10 @@
+$${
+
+
+MATCH(%DATETIME%,[^\s]*$,&start);
+LOG(Timer started at %&start%);
+WAIT(90000ms);
+LOG(30s left from %&start%);
+WAIT(30000ms);
+LOG(2m since %&start%);
+
