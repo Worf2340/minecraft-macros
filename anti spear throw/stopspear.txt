@@ -1,0 +1,12 @@
+$${
+
+DO;
+    IFMATCHES(%RMOUSE%,True);
+        GETSLOTITEM(%INVSLOT%,&item)
+        IF(%&item%="lotr:item.spearMithril");
+            SLOT(3);
+        ENDIF;
+    ENDIF;
+WHILE(1);   
+
+}$$
