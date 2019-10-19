@@ -1,7 +1,4 @@
 # Minecraft Macros
-## This is a compilation of macros for the Macro keybind mod for Minecraft Liteloader 1.7.10, intended for use on The One Ring Minecraft server.
-
-#### Please message Worf2340#8102 on Discord or email worfmogh2340@gmail.com if you need any help or have any suggestions regarding the macros.
 
 ## List of macros:
 * Anti Spear Throw
