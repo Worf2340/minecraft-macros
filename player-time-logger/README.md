@@ -11,9 +11,9 @@
 
 * (You should already have realname.txt bound to onChat. If not, bind it)
 
-* bind $$<cleararray.txt> to onJoinGame
+* bind \$$<cleararray.txt> to onJoinGame
 
-* bind $$<appendOnJoin.txt> to onPlayerJoined
+* bind \$$<appendOnJoin.txt> to onPlayerJoined
   
 * bind $$<cleararray.txt> and $$<printarray.txt> to **separate** buttons or keys of your choice. They clear the list of tracked players and log the list to your console, respectively.
 
